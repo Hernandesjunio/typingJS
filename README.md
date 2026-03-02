@@ -190,4 +190,10 @@ npm run build
 
 ## 📄 Licença
 
-[Defina aqui a licença do projeto, ex.: MIT]
+**Copyright (c) 2025 Hernandes J. Assis.** Todos os direitos reservados.
+
+**Propriedade:** O código e a documentação deste projeto são de minha propriedade.
+
+**Uso permitido (licença MIT):** Você pode usar, copiar, modificar, mesclar, publicar, distribuir e vender cópias deste software, desde que inclua em todas as cópias o aviso de copyright e este texto de permissão. O software é fornecido “como está”, sem garantias.
+
+Em resumo: você pode utilizar e adaptar livremente, mas a autoria e a propriedade intelectual permanecem comigo.
