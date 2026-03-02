@@ -1,3 +1,9 @@
+/**
+ * typingJS - Simula digitação com cursor piscando em elementos do DOM.
+ * Use apenas com conteúdo confiável; innerHTML dos containers não é sanitizado (tags são preservadas no processamento).
+ * @param {Object} options - Ver defaultOptions no código.
+ * @returns {{ execute: () => void }}
+ */
 function typingJS(options) {
   const createStyle = () => {
     if (document.querySelector("#typingStyle")) return;
@@ -90,10 +96,12 @@ function typingJS(options) {
     };
 
     const setCursorOnLastElementCharacter = () => {
-      const lastElement = hiddenElements.filter((c) => c.classList.contains("char-typing")).slice(-1)[0];
+      const charElements = hiddenElements.filter((c) => c.classList.contains("char-typing"));
+      const lastElement = charElements.slice(-1)[0];
 
-      lastElement.append(cursorElement);
-
+      if (lastElement) {
+        lastElement.append(cursorElement);
+      }
       cursorElement.setAttribute("style", `top:auto;left:auto;position:absolute;opacity:1`);
     };
 
@@ -138,7 +146,7 @@ function typingJS(options) {
     tagNames.includes(element.tagName) && element.classList.add("char-typing");
   };
 
-  createCursor = () => {
+  const createCursor = () => {
     const cursor = document.createElement("span");
     cursor.classList.add("cursor-typing", "hide-element-typing");
     cursor.innerText = ".";
@@ -146,7 +154,7 @@ function typingJS(options) {
     return cursor;
   };
 
-  getCursor = () => {
+  const getCursor = () => {
     const cursor = document.querySelector(".cursor-typing");
     cursor && cursor.parentNode.removeChild(cursor);
     return createCursor();
@@ -181,7 +189,7 @@ function typingJS(options) {
   );
 
   if (!containersElements.length)
-    throw new Error(`Options does't constains a valid containerSelector or containerReference`);
+    throw new Error(`Options doesn't contain a valid containerSelector or containerReference`);
 
    containersElements.forEach((container) => container.element.classList.add("hide-element-typing"));
 
@@ -223,4 +231,8 @@ function typingJS(options) {
     chainOfResponsability.execute();
   };
   return { execute: executeFn };
+}
+
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = typingJS;
 }
