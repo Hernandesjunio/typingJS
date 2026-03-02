@@ -2,6 +2,10 @@
 
 Biblioteca JavaScript leve para simular **digitação com cursor piscando** em elementos do DOM. Ideal para cartões do Anki, apresentações, tutoriais ou qualquer interface em que você queira o efeito de texto sendo digitado em tempo real.
 
+### 🎬 Demonstração
+
+![Exemplo de uso do typingJS](assets/typingJS.gif)
+
 ---
 
 ## ✨ Características
